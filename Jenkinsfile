@@ -1,0 +1,3 @@
+buildDockerImage(
+    dockerImageSubPath: 'ci/deploy',
+)
