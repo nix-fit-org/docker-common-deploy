@@ -1,4 +1,4 @@
-FROM nix-docker.registry.twcstorage.ru/base/redhat/ubi9-minimal:9.6@sha256:bb31756af74ea8e4ad046a80479e5aeea35fd01307a12d3ab9a5d92e8422b1f8
+FROM nix-docker.registry.twcstorage.ru/base/redhat/ubi10-minimal:10.1000-1766033715@sha256:05edf453b46e8f615ddad5bbeb3acebc4fbe3d467e2642d14cf43defd2b9465d
 
 LABEL org.opencontainers.image.authors="wizardy.oni@gmail.com"
 
@@ -48,6 +48,7 @@ ARG HELM_VERSION=3.19.0-linux-amd64 \
     HELM_DIFF_VERSION=3.13.0 \
     HELM_SECRETS_VERSION=4.6.10
 ENV HELM_PLUGINS=/etc/helm/plugins
+# hadolint ignore=SC2086
 RUN curl -kLso helm-v${HELM_VERSION}.tar.gz "https://get.helm.sh/helm-v${HELM_VERSION}.tar.gz" \
     && tar -zxvf helm-v${HELM_VERSION}.tar.gz \
     && install -o root -g root -m 0755 linux-amd64/helm /usr/local/bin/helm \
